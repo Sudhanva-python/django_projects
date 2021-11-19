@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+
+
+{% block body_block %}
+
+<div class="container my-3" align  = "left">
+
+  <h2>Tasks list</h2>
+
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Sl. No</th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Task Description</th>
+        <th scope="col">Created Time</th>
+        <th scope="col">User Actions</th>
+      </tr>
+    </thead>
+
+    {% for task in tasks %}
+
+    <tbody>
+        <td>{{forloop.counter}}</td>
+        <td>{{task.name}}</td>
+        <td>{{task.desc}}</td>
+        <td>{{task.time}}</td>
+        <td> <a href="/taskEdit/{{task.id}}">edit</a> <br> <a href="/taskDelete/{{task.id}}">delete</a> </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+
+</div>
+
+{% endblock %}
